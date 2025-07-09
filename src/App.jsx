@@ -11,6 +11,7 @@ import fileManager from "./utils/fileManager";
 import useReadingStats from "./hooks/useReadingStats";
 import useWeather from "./hooks/useWeather";
 import useBlobUrl from "./hooks/useBlobUrl";
+import { FaBook, FaCloud, FaCheck, FaBolt, FaCog, FaChartBar, FaGlobe, FaFolder, FaFile, FaDatabase, FaSync, FaShieldAlt, FaMapMarkerAlt, FaSun, FaRegClock, FaRegSave, FaRegFileAlt, FaRegFolderOpen, FaTimesCircle, FaUser, FaCheckCircle, FaCircle, FaArrowDown, FaExclamationTriangle } from 'react-icons/fa';
 
 const WEATHER_API_KEY = "d07bc4f29f14e466d7e4e48b17f08c2d";
 
@@ -172,7 +173,7 @@ function App() {
               <div className="dashboard-card location-card" style={{ minWidth: 220, maxWidth: 340, flex: 1, marginRight: 12 }}>
                 <h3>Location-Based Features</h3>
                 <div>
-                  <span role="img" aria-label="location">📍</span>
+                  <FaMapMarkerAlt />
                   {location ? `Location: ${location.latitude?.toFixed(4)}, ${location.longitude?.toFixed(4)}` : 'Location not available'}
                 </div>
                 {location && <div>Accuracy: {location.accuracy}m</div>}
@@ -213,16 +214,16 @@ function App() {
               </div>
               <div className="dashboard-card stats-card" style={{ minWidth: 220, maxWidth: 340, flex: 1, marginRight: 12 }}>
                 <h3>Reading Statistics</h3>
-                <div>⏱️ <strong>Time:</strong> {readingTime}s</div>
-                <div>📄 <strong>Pages Read:</strong> {pagesRead}</div>
-                <div>⚡ <strong>Speed:</strong> {readingSpeed} pages/min</div>
+                <div><FaRegClock /> <strong>Time:</strong> {readingTime}s</div>
+                <div><FaBook /> <strong>Pages Read:</strong> {pagesRead}</div>
+                <div><FaBolt /> <strong>Speed:</strong> {readingSpeed} pages/min</div>
               </div>
               <div className="dashboard-card network-card" style={{ minWidth: 220, maxWidth: 340, flex: 1 }}>
                 <h3>Network Status</h3>
-                <div>{networkInfo.online ? '🟢 Online' : '🔴 Offline'} - {networkInfo.effectiveType}</div>
-                <div>⬇️ <strong>Down:</strong> {networkInfo.downlink} Mbps</div>
-                <div>⏱️ <strong>Latency:</strong> {networkInfo.rtt}ms</div>
-                {networkInfo.saveData && <div style={{ color: '#b26a00', fontWeight: 600 }}>⚠️ Data Saver Mode</div>}
+                <div>{networkInfo.online ? <FaCircle style={{color: 'green'}} /> : <FaCircle style={{color: 'red'}} />} Online/Offline - {networkInfo.effectiveType}</div>
+                <div><FaArrowDown /> <strong>Down:</strong> {networkInfo.downlink} Mbps</div>
+                <div><FaRegClock /> <strong>Latency:</strong> {networkInfo.rtt}ms</div>
+                {networkInfo.saveData && <div style={{ color: '#b26a00', fontWeight: 600 }}><FaExclamationTriangle style={{marginRight: 4}} /> Data Saver Mode</div>}
               </div>
             </div>
           </div>
@@ -314,35 +315,35 @@ function App() {
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 32 }}>
             {/* Feature cards */}
             <div className="feature-card accent1">
-              <span className="feature-icon">📁</span>
+              <FaFolder />
               <div className="feature-title">Drag & drop PDF upload</div>
             </div>
             <div className="feature-card accent2">
-              <span className="feature-icon">💾</span>
+              <FaDatabase />
               <div className="feature-title">Offline storage with IndexedDB</div>
             </div>
             <div className="feature-card accent3">
-              <span className="feature-icon">🔄</span>
+              <FaSync />
               <div className="feature-title">Reading progress sync</div>
             </div>
             <div className="feature-card accent4">
-              <span className="feature-icon">⚙️</span>
+              <FaCog />
               <div className="feature-title">Background processing</div>
             </div>
             <div className="feature-card accent5">
-              <span className="feature-icon">📊</span>
+              <FaChartBar />
               <div className="feature-title">Progress tracking</div>
             </div>
             <div className="feature-card accent6">
-              <span className="feature-icon">✅</span>
+              <FaCheck />
               <div className="feature-title">File validation</div>
             </div>
             <div className="feature-card accent7">
-              <span className="feature-icon">🌐</span>
+              <FaGlobe />
               <div className="feature-title">Automatic network optimization</div>
             </div>
             <div className="feature-card accent8">
-              <span className="feature-icon">☁️</span>
+              <FaCloud />
               <div className="feature-title">Location-based weather recommendations</div>
             </div>
             {/* Web APIs & Tech Used cards */}
@@ -350,35 +351,35 @@ function App() {
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 32 }}>
               {/* Web APIs & Tech Used cards */}
               <div className="tech-card accent9">
-                <span className="feature-icon">⚛️</span>
+                <FaUser />
                 <div className="feature-title">React</div>
               </div>
               <div className="tech-card accent10">
-                <span className="feature-icon">⚡</span>
+                <FaBolt />
                 <div className="feature-title">Vite</div>
               </div>
               <div className="tech-card accent11">
-                <span className="feature-icon">📄</span>
+                <FaRegFileAlt />
                 <div className="feature-title">PDF.js</div>
               </div>
               <div className="tech-card accent12">
-                <span className="feature-icon">🗄️</span>
+                <FaRegFolderOpen />
                 <div className="feature-title">IndexedDB (localForage)</div>
               </div>
               <div className="tech-card accent13">
-                <span className="feature-icon">🛡️</span>
+                <FaShieldAlt />
                 <div className="feature-title">Service Workers</div>
               </div>
               <div className="tech-card accent14">
-                <span className="feature-icon">📍</span>
+                <FaMapMarkerAlt />
                 <div className="feature-title">Geolocation API</div>
               </div>
               <div className="tech-card accent15">
-                <span className="feature-icon">📶</span>
+                <FaChartBar />
                 <div className="feature-title">Network Information API</div>
               </div>
               <div className="tech-card accent16">
-                <span className="feature-icon">☀️</span>
+                <FaSun />
                 <div className="feature-title">OpenWeatherMap API</div>
               </div>
             </div>
